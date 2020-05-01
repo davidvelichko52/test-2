@@ -10,7 +10,14 @@ app.use(methodOverride('_method'));
 
 // WRITE YOUR ROUTES HERE /////////////////////
 
+app.get('/', (req, res) => {
+      res.render('home');
+})
 
+// Create a wildcard (catch-all)
+app.get('*', (req, res) => {
+    res.render('error')
+})
 
 // YOUR ROUTES ABOVE THIS COMMENT /////////////
 
