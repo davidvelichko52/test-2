@@ -1,1 +1,49 @@
-<h1>Home</h1>
+<h1>Wacky Widgets </h1>
+
+
+       
+
+       <% if (widgets.length === 0) { %>
+        
+        <h2>No Widgets Exist!</h2>
+        <% } else { %>
+            <% widgets.forEach(w => { %>
+                <section>
+                
+                    <h2> <%= w.description %></h2>
+                    <h3><strong>Quantity</strong>: <%= w.quantity %></h3>
+                    
+                <form id="delete-form" method="POST" action="/?_method=DELETE">
+                    <input type="hidden" name="id" value="<%=w.id%>">
+                    <button  type="submit">
+                        DELETE
+                    </button>
+                </form>
+
+            </section>
+            <% }) %>
+        <% } %>
+   
+    
+
+<hr>
+<h2>Add Widget</h2>
+
+
+<form action="/" method="POST">
+
+
+    <div class="form-group">
+      
+      <input type="text"  id="description" name="description" placeholder="widget description" required>
+     
+      <input type="number" id="quantity" name="quantity"  placeholder="widget quantity" required>
+
+    </div>
+  
+
+    <input type="submit" value="Add Widget">
+  
+  </form>
+
+
